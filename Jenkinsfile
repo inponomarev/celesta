@@ -10,15 +10,10 @@ node {
         checkout scm
     }
     
-    try {
-      stage ('Static analysis'){
-          docker.image('inponomarev/intellij-idea-analyzer').inside {
-               sh 'sudo /root/idea/bin/inspect.sh $(pwd) $(pwd)/.idea/inspectionProfiles/Project_Default.xml $(pwd)/target/idea_inspections -v2'
-          }
-      }
-    } finally {
+    stage ('Static analysis'){
+        sh 'docker run --rm -v `pwd`:/var/project inponomarev/intellij-idea-analyzer'
         recordIssues(
            tools: [ideaInspection(pattern: 'target/idea_inspections/*.xml')]
-        )
+        )  
     }
 }
