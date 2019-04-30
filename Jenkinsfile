@@ -11,6 +11,7 @@ node {
     }
     
     stage ('Static analysis'){
+        sh 'rm -rf target/idea_inspections'
         sh 'docker run --rm -v `pwd`:/var/project inponomarev/intellij-idea-analyzer'
         recordIssues(
            tools: [ideaInspection(pattern: 'target/idea_inspections/*.xml')]
