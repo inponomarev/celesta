@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/celesta-core/celesta-core.iml" filepath="$PROJECT_DIR$/celesta-core/celesta-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/celesta-documentation/celesta-documentation.iml" filepath="$PROJECT_DIR$/celesta-documentation/celesta-documentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/celesta-maven-plugin/celesta-maven-plugin.iml" filepath="$PROJECT_DIR$/celesta-maven-plugin/celesta-maven-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/celesta-parent.iml" filepath="$PROJECT_DIR$/celesta-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/celesta-sql/celesta-sql.iml" filepath="$PROJECT_DIR$/celesta-sql/celesta-sql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/celesta-system-services/celesta-system-services.iml" filepath="$PROJECT_DIR$/celesta-system-services/celesta-system-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/celesta-test/celesta-test.iml" filepath="$PROJECT_DIR$/celesta-test/celesta-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/celesta-unit/celesta-unit.iml" filepath="$PROJECT_DIR$/celesta-unit/celesta-unit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dbschemasync/dbschemasync.iml" filepath="$PROJECT_DIR$/dbschemasync/dbschemasync.iml" />
+    </modules>
+  </component>
+</project>
