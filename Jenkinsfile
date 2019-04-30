@@ -13,7 +13,7 @@ node {
     try {
       stage ('Static analysis'){
           docker.image('inponomarev/intellij-idea-analyzer').inside {
-               sh 'idea/bin/inspect.sh $(pwd) $(pwd)/.idea/inspectionProfiles/Project_Default.xml $(pwd)/target/idea_inspections -v2
+               sh 'idea/bin/inspect.sh $(pwd) $(pwd)/.idea/inspectionProfiles/Project_Default.xml $(pwd)/target/idea_inspections -v2'
           }
     } finally {
         recordIssues(
