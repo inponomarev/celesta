@@ -16,7 +16,7 @@ node {
            // sh 'whoami'
            // sh 'mkdir -p ~/${IDEA_CONFIG_DIR}/config/options'
            // sh 'ln -s /opt/idea/jdk.table.xml ~/${IDEA_CONFIG_DIR}/config/options/jdk.table.xml'
-           sh '/opt/idea/bin/inspect.sh $(pwd) $(pwd)/.idea/inspectionProfiles/Project_Default.xml $(pwd)/target/idea_inspections -v2'
+           sh '/opt/idea/bin/inspect.sh $(pwd) $(pwd)/.idea/inspectionProfiles/Project_Default.xml $(pwd)/target/idea_inspections -v2 || true'
            sh 'find / -type d -name ".IdeaIC2019.1"'
         }
         recordIssues(
