@@ -13,9 +13,10 @@ node {
     stage ('Static analysis'){
         sh 'rm -rf target/idea_inspections'
         docker.image('inponomarev/intellij-idea-analyzer').inside {
-           // sh 'whoami'
-           // sh 'mkdir -p ~/${IDEA_CONFIG_DIR}/config/options'
-           // sh 'ln -s /opt/idea/jdk.table.xml ~/${IDEA_CONFIG_DIR}/config/options/jdk.table.xml'
+           sh 'mkdir -p /tmp/home'
+           sh 'HOME=/tmp/home'
+           sh 'mkdir -p ${HOME}/${IDEA_CONFIG_DIR}/config/options'
+           sh 'ln -s /opt/idea/jdk.table.xml ${HOME}/${IDEA_CONFIG_DIR}/config/options/jdk.table.xml'
            sh '/opt/idea/bin/inspect.sh $(pwd) $(pwd)/.idea/inspectionProfiles/Project_Default.xml $(pwd)/target/idea_inspections -v2'
         }
         
