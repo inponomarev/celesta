@@ -1,11 +1,4 @@
-@Library('ratcheting') _
-
 node {
-    def server = Artifactory.server 'ART'
-    def rtMaven = Artifactory.newMavenBuild()
-    def buildInfo
-    def oldWarnings
-
     stage ('Clone') {
         checkout scm
     }
@@ -15,11 +8,11 @@ node {
         docker.image('inponomarev/intellij-idea-analyzer').inside {
            sh 'mkdir -p ${WORKSPACE}/?/${IDEA_CONFIG_DIR}/config/options'
            sh 'ln -s /opt/idea/jdk.table.xml ${WORKSPACE}/?/${IDEA_CONFIG_DIR}/config/options/jdk.table.xml'
-           sh '/opt/idea/bin/inspect.sh $(pwd) $(pwd)/.idea/inspectionProfiles/Project_Default.xml $(pwd)/target/idea_inspections -v2 || true'
-           sh 'find / -type d -name ".IdeaIC2019.1"'
+           sh 'mkdir -p target/idea_inspections'
+           sh '/opt/idea/bin/inspect.sh $(pwd) $(pwd)/.idea/inspectionProfiles/Project_Default.xml $(pwd)/target/idea_inspections -v2'
         }
         recordIssues(
            tools: [ideaInspection(pattern: 'target/idea_inspections/*.xml')]
-        )  
+        )
     }
 }
