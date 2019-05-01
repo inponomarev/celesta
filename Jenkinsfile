@@ -14,7 +14,7 @@ node {
         sh 'rm -rf target/idea_inspections'
         docker
           .image('inponomarev/intellij-idea-analyzer')
-          .run('-v $(pwd):/var/project')
+          .run('-v ${env.WORKSPACE}:/var/project')
         
         recordIssues(
            tools: [ideaInspection(pattern: 'target/idea_inspections/*.xml')]
