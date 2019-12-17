@@ -16,7 +16,10 @@ before_install:
   - sudo apt-get install -y graphviz libpango1.0-dev libpangocairo-1.0-0 libgirepository1.0-dev
   - sudo pip install pygobject
   - sudo pip install syntrax
-  - cp .travis.settings.xml $HOME/.m2/settings.xml
+  - cp .travis.settings.xml $HOME/.m2/settings.xml  
+  - echo "optx('SYNTRAX')" > img
+  - syntrax -i img -o img.svg
+  - cat img.svg
 
 script:
   - mvn javadoc:aggregate -pl :celesta-parent,:celesta-sql,:celesta-core,:celesta-system-services,:celesta-unit
