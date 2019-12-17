@@ -202,6 +202,18 @@ indentstack(6,
     opt('/inline_fk_definition')
  )
 )
+
+url_map = {
+  'int_field': '.#int_field',
+  'floating_field': '.#floating_field',
+  'decimal_field': '.#decimal_field'
+  'text_field': '.#text_field',
+  'blob_field': '.#blob_field',
+  'datetime_field': '.#datetime_field',
+  'datetime_with_time_zone_field': '.#datetime_with_time_zone_field',
+  'bit_field': '.#bit_field',
+  'inline_fk_definition': '.#inline_fk_definition'
+}
 ....
 
 *field_definition* (Определение поля) — конструкция, задающая тип поля, название поля, его свойства NULL/NOT NULL и DEFAULT, опционально может заканчиваться конструкцией PRIMARY KEY и/или FOREIGN KEY.
@@ -223,6 +235,11 @@ line(
   ')',
   '/fk_rules')
 )
+
+url_map = {
+  'table_ref': '.#table_ref',
+  'fk_rules': '.#fk_rules'
+}
 ....
 
 Здесь *table_ref* — ссылка на таблицу, которая может быть однокомпонентной (если таблица, на которую указывает внешний ключ, находится в текущей грануле) или двухкомпонентной, с явным указанием имени гранулы:
@@ -366,6 +383,10 @@ url_map = {
 ....
 line('REAL', '/nullability', 
 optx('DEFAULT', '/<float.-point literal>'))
+
+url_map = {
+  'nullability': '.#nullability'
+}
 ....
 
 [[decimal_field]]
@@ -375,6 +396,10 @@ indentstack(3,
 line('DECIMAL', '(', '/<integer literal>', ',' , '/<integer literal>', ')'),
 line('/nullability', optx('DEFAULT', '/<float.-point literal>'))
 )
+
+url_map = {
+  'nullability': '.#nullability'
+}
 ....
 
 [[text_field]]
@@ -385,6 +410,10 @@ line(choice(line('VARCHAR', '(', '/<integer literal>', ')'),
             'TEXT')),
 line('/nullability', optx('DEFAULT', '/<text literal>'))
 )
+
+url_map = {
+  'nullability': '.#nullability'
+}
 ....
 
 [[blob_field]]
@@ -392,6 +421,10 @@ line('/nullability', optx('DEFAULT', '/<text literal>'))
 ....
 line('BLOB', '/nullability', 
 optx('DEFAULT', '/<binary literal>'))
+
+url_map = {
+  'nullability': '.#nullability'
+}
 ....
 
 Здесь *<binary literal>* — шестнадцатеричное представление последовательности байтов, начинающееся с 0x и не заключённые в кавычки, например: 0xFFAAFFAAFF.
@@ -402,6 +435,10 @@ optx('DEFAULT', '/<binary literal>'))
 line('DATETIME', '/nullability', 
 optx('DEFAULT', choice(line('\'', '/<YYYYMMDD>', '\''),
                        'GETDATE()')))
+
+url_map = {
+  'nullability': '.#nullability'
+}
 ....
 
 В качестве значения DEFAULT для поля с типом DATETIME может использоваться функция GETDATE() (текущий момент времени).
@@ -410,12 +447,20 @@ optx('DEFAULT', choice(line('\'', '/<YYYYMMDD>', '\''),
 [syntrax,datetime_with_time_zone_field,svg,heading="datetime_with_time_zone_field",opts=interactive]
 ....
 line('DATETIME', 'WITH', 'TIME', 'ZONE', '/nullability')
+
+url_map = {
+  'nullability': '.#nullability'
+}
 ....
 
 [[bit_field]]
 [syntrax,bit_field,svg,heading="bit_field",opts=interactive]
 ....
 line('BIT', '/nullability', optx('DEFAULT', choice('TRUE', 'FALSE')))
+
+url_map = {
+  'nullability': '.#nullability'
+}
 ....
 
 === Первичные ключи
@@ -465,6 +510,11 @@ line(
   ')',
   '/fk_rules'
 ))
+
+url_map = {
+  'table_ref': '.#table_ref',
+  'fk_rules': '.#fk_rules'
+}
 ....
 
 *foreign_key_definition* (Определение внешнего ключа) — конструкция, задающая связь между таблицами по одному или нескольким полям. Как и в случае с конструкцией PRIMARY KEY, возможно использование в двух вариантах — сокращённом (встроенном в определение поля, связь по одному полю) и полном (перечисляется среди определений полей). Кроме того, внешний ключ можно создать вне определения таблицы при помощи конструкции "alter table add constraint foreign key":
@@ -483,6 +533,10 @@ line(
   '/<fk name>',
   '/foreign_key_definition'
 ))
+
+url_map = {
+  'foreign_key_definition': '.#foreign_key_definition'
+}
 ....
 
 Ограничения:
@@ -621,6 +675,10 @@ line(
   '/<view name>',
   'AS',
   '/query')
+
+url_map = {
+  'query': '.#query'
+}
 ....
 
 * *<view name>* (имя представления) должно быть уникальным в пределах гранулы и не совпадать с именем таблицы.
@@ -649,6 +707,14 @@ rightstack(
     optx('/group_by')
    )
 )
+
+url_map = {
+  'term': '.#term',
+  'aggregate': '.#aggregate',
+  'from_clause': '.#from_clause',
+  'condition': '.#condition',
+  'group_by': '.#group_by'
+}
 ....
 
 [[from_clause]]
@@ -670,6 +736,11 @@ indentstack(3,
     )
   )
 )
+
+url_map = {
+  'table_ref': '.#table_ref',
+  'condition': '.#condition'
+}
 ....
 
 Основными ограничениями и отличиями такого запроса от SQL-запросов в различных СУБД являются:
@@ -707,6 +778,11 @@ loop(
       line('(', '/term', ')'))),
   choice('+', '-', '*', '/', '||')
 )
+
+url_map = {
+  'primary_term': '.#primary_term',
+  'term': '.#term'
+}
 ....
 
 Над выражениям типа `INT` и `REAL` допустимы обычные арифметические операции с обычным приоритетом: максимальный приоритет у унарного минуса, далее — умножение и деление («*», «/»), далее — сложение и вычитание («+», «-»). Над выражениями типа `VARCHAR` допустима операция конкатенации «||». Операции над полями прочих типов недопустимы.
@@ -742,6 +818,11 @@ loop(
           line('(', '/condition', ')'))),
   choice('AND', 'OR')
 )
+
+url_map = {
+  'predicate': '.#predicate',
+  'condition': '.#condition'
+}
 ....
 
 [[predicate]]
@@ -756,6 +837,10 @@ choice(
       line('IN', '(', loop('/term', ','), ')'),
       line('IS', 'NULL')
 ))
+
+url_map = {
+  'term': '.#term'
+}
 ....
 
 [[aggregate]]
@@ -774,6 +859,10 @@ line(
     )
   ),
   'AS', '/<field alias>')
+  
+url_map = {
+  'term': '.#term'
+}
 ....
 
 Следует отметить, что *term* внутри конструкции `SUM` должен являться числом.
@@ -829,6 +918,12 @@ line(
   '/table_ref',
   '/group_by'
 ))
+
+url_map = {
+  'materialized_aggregate': '.#materialized_aggregate',
+  'table_ref': '.#table_ref',
+  'group_by': '.#group_by'
+}
 ....
 
 Основными ограничениями и отличиями такого запроса от SQL-запросов в различных СУБД являются:
@@ -856,6 +951,10 @@ line(
     )
   ),
   'AS', '/<field alias>')
+
+url_map = {
+  'term': '.#term'
+}
 ....
 
 [[create_function_statement]]
@@ -885,6 +984,11 @@ indentstack(3,
   '/query'
  )
 )
+
+url_map = {
+  'param_definition': '.#param_definition',
+  'query': '.#query'
+}
 ....
 
 
