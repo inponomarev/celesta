@@ -206,7 +206,7 @@ indentstack(6,
 url_map = {
   'int_field': '.#int_field',
   'floating_field': '.#floating_field',
-  'decimal_field': '.#decimal_field'
+  'decimal_field': '.#decimal_field',
   'text_field': '.#text_field',
   'blob_field': '.#blob_field',
   'datetime_field': '.#datetime_field',
