@@ -325,7 +325,7 @@ line('INT', '/nullability',
 optx('DEFAULT', choice('/<integer literal>', 
                      line('NEXTVAL', '(', '/<sequence name>', ')'))))
 url_map = {
-  'nullability': 'index.html#nullability'
+  'nullability': '.#nullability'
 }
 ....
 
