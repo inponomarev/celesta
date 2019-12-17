@@ -13,7 +13,9 @@ cache:
   - $HOME/.m2
 
 before_install:
-  - sudo apt-get install -y graphviz
+  - sudo apt-get install -y graphviz libpango1.0-dev libpangocairo-1.0-0
+  - pip install pygobject
+  - pip install syntrax
   - cp .travis.settings.xml $HOME/.m2/settings.xml
 
 script:
