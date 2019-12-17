@@ -688,7 +688,6 @@ indentstack(3,
 
 Ссылка на таблицу (*table_ref*) имеет синтаксис
 
-[[table_ref]]
 [syntrax,table_ref,svg,heading="table_ref",opts=interactive]
 ....
 line(optx('/<grain name>', '.'), '/<table name>')
