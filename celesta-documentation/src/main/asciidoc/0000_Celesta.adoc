@@ -37,7 +37,7 @@ include::1013_maven_plugin.adoc[leveloffset=+2, tag="maven_plugin"]
 include::1020_celesta_start.adoc[leveloffset=+2, tag="celesta_start"]
 
 [[basic_settings_section]]
-=== Базовая настройка Celesta
+=== Параметры конфигурации Celesta
 
 include::1030_basic_settings.adoc[leveloffset=+2, tag="basic_settings"]
 
@@ -64,7 +64,7 @@ include::1060_celesta_doc.adoc[leveloffset=+2, tag="celesta_doc"]
 include::1070_call_context.adoc[leveloffset=+2, tag="call_context"]
 
 [[data_accessors_section]]
-=== Работа с данными через классы доступа к данным
+=== Работа с данными через классы доступа к данным (курсоры)
 
 include::1080_classes.adoc[leveloffset=+2, tag="classes"]
 
