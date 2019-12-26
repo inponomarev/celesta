@@ -23,7 +23,7 @@ Unlike e. g. Hibernate + Liquibase, Celesta does not require one to keep in mind
 
 Feel free to ask a question, open an issue or submit a PR.
 
-[Celesta Improvement Process](https://github.com/courseorchestra/cip) is for major features and public API changes. In order to initiate such a change you might want to submit a new CIP.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
 ## Related Tools
 
