@@ -3,7 +3,7 @@
     <parent>
         <artifactId>celesta-parent</artifactId>
         <groupId>ru.curs</groupId>
-        <version>7.2.6-SNAPSHOT</version>
+        <version>7.2.8-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,29 +15,13 @@
         <dependency>
             <groupId>ru.curs</groupId>
             <artifactId>celesta-sql</artifactId>
-            <version>7.2.6-SNAPSHOT</version>
+            <version>7.2.8-SNAPSHOT</version>
         </dependency>
 
         <!-- TEST DEPENDENCIES -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-launcher</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-runner</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
+            <artifactId>junit-jupiter</artifactId>
         </dependency>
     </dependencies>
 
